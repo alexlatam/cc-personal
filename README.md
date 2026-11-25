@@ -1,28 +1,7 @@
-# Claude Code — Leaked Source (2026-03-31)
-
-> **On March 31, 2026, the full source code of Anthropic's Claude Code CLI was leaked** via a `.map` file exposed in their npm registry.
+# AI Harness 
 
 ---
 
-## How It Leaked
-
-[Chaofan Shou (@Fried_rice)](https://x.com/Fried_rice) discovered the leak and posted it publicly:
-
-> **"Claude code source code has been leaked via a map file in their npm registry!"**
->
-> — [@Fried_rice, March 31, 2026](https://x.com/Fried_rice/status/2038894956459290963)
-
-The source map file in the published npm package contained a reference to the full, unobfuscated TypeScript source, which was downloadable as a zip archive from Anthropic's R2 storage bucket.
-
----
-
-## Overview
-
-Claude Code is Anthropic's official CLI tool that lets you interact with Claude directly from the terminal to perform software engineering tasks — editing files, running commands, searching codebases, managing git workflows, and more.
-
-This repository contains the leaked `src/` directory.
-
-- **Leaked on**: 2026-03-31
 - **Language**: TypeScript
 - **Runtime**: Bun
 - **Terminal UI**: React + [Ink](https://github.com/vadimdemedes/ink) (React for CLI)
@@ -80,7 +59,7 @@ src/
 
 ### 1. Tool System (`src/tools/`)
 
-Every tool Claude Code can invoke is implemented as a self-contained module. Each tool defines its input schema, permission model, and execution logic.
+Every tool this harness can invoke is implemented as a self-contained module. Each tool defines its input schema, permission model, and execution logic.
 
 | Tool | Description |
 |---|---|
@@ -154,7 +133,7 @@ User-facing slash commands invoked with `/` prefix.
 
 ### 4. Bridge System (`src/bridge/`)
 
-A bidirectional communication layer connecting IDE extensions (VS Code, JetBrains) with the Claude Code CLI.
+A bidirectional communication layer connecting IDE extensions (VS Code, JetBrains) with the harness Code CLI.
 
 - `bridgeMain.ts` — Bridge main loop
 - `bridgeMessaging.ts` — Message protocol
